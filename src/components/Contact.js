@@ -122,7 +122,8 @@ class Contact extends Component {
                 </div>
 
                 <div className="form-container">
-                    <form className="contact-form" name="contact" method="POST" netlify>
+                    <form className="contact-form" method="post">
+                        <Input type="hidden" name="form-name" value="contact" />
                         <Input
                             type="text"
                             placeholder="Name"
