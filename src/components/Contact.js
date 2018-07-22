@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 import axios from 'axios'
 import NotificationSystem from 'react-notification-system'
 import Link from 'gatsby-link'
@@ -9,10 +10,9 @@ import FORMSPREE_EMAIL from '../constants'
 class Contact extends Component {
     _notificationSystem = null
     state = {
-        name: "",
-        email: "",
-        message: "",
+        data: {},
         form_errors: {},
+        valid: false
     }
 
     componentDidMount = () => {
@@ -20,7 +20,11 @@ class Contact extends Component {
     }
 
     _handleInputChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        const data_clone = _.cloneDeep(this.state.data);
+        data_clone[e.target.name] = e.target.value;
+        this.setState({ data: data_clone }, () => {
+            this.setState({form_errors: this.validateForm()})
+        })
     }
 
     emailValidation = (email) => {
@@ -29,24 +33,43 @@ class Contact extends Component {
     }
 
     validateForm = () => {
-        const { email, name, message } = this.state
-        let valid = true
-        const errors = {}
-        if (email == '' || !this.emailValidation(email)) {
-            errors['email'] = "Please provide a valid email"
-            valid = false
-        }
-        if (name == "") {
-            errors['name'] = "Please enter your name"
-            valid = false
-        }
-        if (message == "") {
-            errors['message'] = "Please enter your message"
-            valid = false
+        const {data} = this.state
+        let data_errors = {}
+        console.log("data", data)
+        Object.entries(data).map(([key, value]) => {
+            if (key == 'email' && !this.emailValidation(value)) {
+                data_errors[key] = "Enter a valid email address"
+            }
+            if (value == "" || value == undefined) {
+                data_errors[key] = "This field is required"
+            }
+        });
+
+        if(Object.keys(data).length == 3 && Object.keys(data_errors).length == 0){
+            this.setState({valid: true})
         }
 
-        this.setState({ form_errors: errors })
-        return valid
+        return data_errors
+        
+
+        // const { email, name, message } = this.state
+        // let valid = true
+        // const errors = {}
+        // if (email == '' || !this.emailValidation(email)) {
+        //     errors['email'] = "Please provide a valid email"
+        //     valid = false
+        // }
+        // if (name == "") {
+        //     errors['name'] = "Please enter your name"
+        //     valid = false
+        // }
+        // if (message == "") {
+        //     errors['message'] = "Please enter your message"
+        //     valid = false
+        // }
+
+        // this.setState({ form_errors: errors })
+        // return valid
     }
 
     submitForm = (e) => {
@@ -83,7 +106,8 @@ class Contact extends Component {
 
 
     render() {
-        const { name, email, message, form_errors } = this.state
+        const { name, email, message } = this.state.data
+        const { form_errors, valid } = this.state
         return (
             <div className="contact" ref="contact">
                 <NotificationSystem ref="notificationSystem" />
@@ -98,7 +122,7 @@ class Contact extends Component {
                 </div>
 
                 <div className="form-container">
-                    <form className="contact-form" onSubmit={(e) => this.submitForm(e)}>
+                    <form className="contact-form" name="contact" method="POST" netlify>
                         <Input
                             type="text"
                             placeholder="Name"
@@ -126,7 +150,7 @@ class Contact extends Component {
                             error={form_errors.message ? form_errors.message : null}
                         />
 
-                        <button className="submit" type="submit">SUBMIT</button>
+                        <button className="submit" type="submit" disabled={!valid}>SUBMIT</button>
                     </form>
 
                 </div>

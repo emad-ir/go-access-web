@@ -3,6 +3,7 @@
 $primary-color: #cac82d;
 $background-color: #d2dbbd;
 $dark-green: #1a3f39;
+$disabled: #D3D3D3;
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -110,6 +111,13 @@ body {
                     margin-top: 20px;
                     &:hover {
                         cursor: pointer;
+                        background-color: $background-color;
+                        color: $dark-green;
+                    }
+                    &:disabled{
+                        background-color: $disabled;
+                        border: 2px solid $disabled;
+                        cursor: not-allowed;
                     }
                 }
             }
