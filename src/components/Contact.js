@@ -121,7 +121,7 @@ class Contact extends Component {
                 </div>
 
                 <div className="form-container">
-                    <form className="contact-form" method="post" data-netlify="true">
+                    <form className="contact-form" name="contact" method="post" data-netlify="true">
                         <Input type="hidden" name="form-name" value="contact" />
                         <Input
                             type="text"
