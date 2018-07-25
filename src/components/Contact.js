@@ -35,7 +35,6 @@ class Contact extends Component {
     validateForm = () => {
         const {data} = this.state
         let data_errors = {}
-        console.log("data", data)
         Object.entries(data).map(([key, value]) => {
             if (key == 'email' && !this.emailValidation(value)) {
                 data_errors[key] = "Enter a valid email address"
@@ -122,7 +121,7 @@ class Contact extends Component {
                 </div>
 
                 <div className="form-container">
-                    <form className="contact-form" method="post">
+                    <form className="contact-form" method="post" data-netlify="true">
                         <Input type="hidden" name="form-name" value="contact" />
                         <Input
                             type="text"
