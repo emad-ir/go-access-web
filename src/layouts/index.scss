@@ -50,7 +50,7 @@ body {
         min-height: calc(100vh - 100px - 50px);
         background-color: $background-color;
         .header {
-            width: 400px;
+            width: 300px;
             height: 80px;
             background-color: $primary-color;
             display: flex;
@@ -140,4 +140,17 @@ body {
     html {
         font-size: 100%;
     }
+    
 }
+
+$screen-small: 600px;
+@media only screen
+and (min-width : $screen-small) {
+    body {
+        .contact{
+            .header {
+                width: 400px;
+            }
+        }
+    }
+} 

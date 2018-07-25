@@ -121,7 +121,7 @@ class Contact extends Component {
                 </div>
 
                 <div className="form-container">
-                    <form className="contact-form" name="contact" method="post" data-netlify="true">
+                    <form className="contact-form" name="contact" method="POST" data-netlify="true">
                         <Input type="hidden" name="form-name" value="contact" />
                         <Input
                             type="text"
@@ -149,7 +149,7 @@ class Contact extends Component {
                             onChange={(e) => this._handleInputChange(e)}
                             error={form_errors.message ? form_errors.message : null}
                         />
-
+                        <div data-netlify-recaptcha></div>
                         <button className="submit" type="submit" disabled={!valid}>SUBMIT</button>
                     </form>
 
