@@ -149,7 +149,6 @@ class Contact extends Component {
                             onChange={(e) => this._handleInputChange(e)}
                             error={form_errors.message ? form_errors.message : null}
                         />
-                        <div data-netlify-recaptcha></div>
                         <button className="submit" type="submit" disabled={!valid}>SUBMIT</button>
                     </form>
 
