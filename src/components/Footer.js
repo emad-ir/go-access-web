@@ -5,7 +5,9 @@ import Ir_logo from '../../images/ir_created_by.png'
 
 const footer = () => (
     <div className="footer">
-        <img src={Ir_logo} alt="Created by Infite Reality" />
+        <a href="http://www.infinitereality.co.za" target="_blank">
+            <img src={Ir_logo} alt="Created by Infite Reality" />
+        </a>
     </div>
 )
 

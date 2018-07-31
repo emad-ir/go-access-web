@@ -115,9 +115,9 @@ class Contact extends Component {
 
                 </div>
                 <div className="description">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatum quaerat enim cum, reprehenderit culpa reiciendis exercitationem similique blanditiis, voluptas non quia architecto aperiam id? Neque quia sequi hic ex.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cumque beatae velit aliquid placeat molestias ipsa reprehenderit dignissimos autem odio iure excepturi hic, suscipit ducimus deserunt quos quis maxime! Deleniti.
-                    </p>
+                    <p>We are excited to announce that Go will soon be live!</p>
+                    <p>We believe in improving the quality of life of our clients by offering a simple and effortless solution to access control.</p>
+                    <p>If you have any questions or queries regarding how we will provide you with total freedom, please fill in your details below and we'll be sure to get back to you.</p>
                 </div>
 
                 <div className="form-container">
