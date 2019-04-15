@@ -9,6 +9,9 @@ class Banner extends Component {
     render() {
         return (
             <div className="banner">
+                <div className="links">
+                    <Link to="privacy">Privacy &amp; Policy</Link>
+                </div>
                 <img src={GoLogo} alt="Go Logo" className="logo" />
                 <img src={arrow} alt="Down arrow" className="arrow" onClick={() => this.props.onScroll()} />
             </div>
