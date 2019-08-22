@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
 import { configureAnchors, goToAnchor } from 'react-scrollable-anchor'
 
-import Navbar from "./Navbar"
+import Navbar from "./navbar"
 import IRLogo from '../images/ir_logo.png'
 import { SiteColors, PhoneSectionPadding, TabletSectionPadding, DesktopSectionPadding } from "../utils/constants";
 import mediaQuery from "../utils/mediaQuery";
