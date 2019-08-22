@@ -130,7 +130,6 @@ const Layout = (props) => {
             setTimeout(() => {
                 window.history.pushState('', 'Home | Go Access', '/#contact');
             }, 2000);
-
         }
     }
 
