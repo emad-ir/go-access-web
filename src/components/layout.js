@@ -126,16 +126,16 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = (props) => {
-    configureAnchors({ offset: -60, scrollDuration: 1000 });
-    if (props.location) {
-        const { search } = props.location
-        if (search !== '' && search.indexOf('success') > -1) {
-            goToAnchor('contact', true);
-            setTimeout(() => {
-                window.history.pushState('', 'Home | Go Access', '/#contact');
-            }, 2000);
-        }
-    }
+    // configureAnchors({ offset: -60, scrollDuration: 1000 });
+    // if (props.location) {
+    //     const { search } = props.location
+    //     if (search !== '' && search.indexOf('success') > -1) {
+    //         goToAnchor('contact', true);
+    //         setTimeout(() => {
+    //             window.history.pushState('', 'Home | Go Access', '/#contact');
+    //         }, 2000);
+    //     }
+    // }
 
     return (
         <>

@@ -297,7 +297,7 @@ class Contact extends Component {
         const { success } = this.props
 
         return (
-            <ScrollableAnchor id="contact">
+            <div id="contact">
                 <Container>
                     <div className="form-container">
                         <form action="https://jumprock.co/mail/goaccess" method="post">
@@ -368,7 +368,7 @@ class Contact extends Component {
 
                     <div className="background-circle"></div>
                 </Container>
-            </ScrollableAnchor>
+            </div>
         )
     }
 }

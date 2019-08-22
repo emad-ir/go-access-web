@@ -103,7 +103,7 @@ function Collapse(props) {
 
 const faq = () => {
     return (
-        <ScrollableAnchor id="faq">
+        <div id="faq">
             <Container>
                 {
                     FAQ_CONTENT.map((obj, index) => (
@@ -130,7 +130,7 @@ const faq = () => {
                 }
             </Container>
 
-        </ScrollableAnchor>
+        </div>
     )
 }
 

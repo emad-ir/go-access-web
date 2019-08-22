@@ -191,7 +191,7 @@ class Banner extends Component {
 
     render() {
         return (
-            <ScrollableAnchor id="banner" ref={ref => (this.container = ref)}>
+            <div id="banner" ref={ref => (this.container = ref)}>
                 <Container >
                     <div>
                         {/* <PrimaryHeader
@@ -268,7 +268,7 @@ class Banner extends Component {
                     </div> */}
                 </Container >
 
-            </ScrollableAnchor>
+            </div>
         )
     }
 }

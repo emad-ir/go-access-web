@@ -12,19 +12,37 @@ import GoEcosystem from '../components/sections/goEcosystem'
 import Faq from '../components/sections/faq'
 import Contact from '../components/sections/contact'
 
+// class IndexPage extends Component {
+//     render() {
+//         const { search } = this.props.location
+//         const formSuccess = search.indexOf('success') > -1
+//         return (
+//             <Layout location={this.props.location}>
+//                 <SEO title="Home" />
+//                 <Banner></Banner>
+//                 <WhyGo location={this.props.location}></WhyGo>
+//                 <GoGreen></GoGreen>
+//                 <GoEcosystem></GoEcosystem>
+//                 <Faq></Faq>
+//                 <Contact success={formSuccess}></Contact>
+//             </Layout>
+//         );
+//     }
+// }
+
+// export default IndexPage
 class IndexPage extends Component {
     render() {
-        const { search } = this.props.location
-        const formSuccess = search.indexOf('success') > -1
+        // const formSuccess = search.indexOf('success') > -1
         return (
-            <Layout location={this.props.location}>
+            <Layout>
                 <SEO title="Home" />
                 <Banner></Banner>
-                <WhyGo location={this.props.location}></WhyGo>
+                <WhyGo></WhyGo>
                 <GoGreen></GoGreen>
                 <GoEcosystem></GoEcosystem>
                 <Faq></Faq>
-                <Contact success={formSuccess}></Contact>
+                <Contact success={false}></Contact>
             </Layout>
         );
     }
