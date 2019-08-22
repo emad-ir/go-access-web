@@ -1,24 +1,32 @@
-import React, { Component } from 'react'
-import scrollToComponent from 'react-scroll-to-component';
+import React, { Component } from "react"
 
-import Banner from '../components/Banner'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+// Utils
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+// Page Sections
+import Banner from '../components/sections/banner'
+import WhyGo from '../components/sections/whyGo'
+import GoGreen from '../components/sections/goGreen'
+import GoEcosystem from '../components/sections/goEcosystem'
+import Faq from '../components/sections/faq'
+import Contact from '../components/sections/contact'
 
 class IndexPage extends Component {
-    handleScrollEvent = () => {
-        scrollToComponent(this.refs.contact, {
-            offset: 1000,
-        });
-    }
     render() {
+        const { search } = this.props.location
+        const formSuccess = search.indexOf('success') > -1
         return (
-            <div>
-                <Banner onScroll={this.handleScrollEvent} />
-                <Contact ref="contact" />
-                <Footer />
-            </div>
-        )
+            <Layout location={this.props.location}>
+                <SEO title="Home" />
+                <Banner></Banner>
+                <WhyGo location={this.props.location}></WhyGo>
+                <GoGreen></GoGreen>
+                <GoEcosystem></GoEcosystem>
+                <Faq></Faq>
+                <Contact success={formSuccess}></Contact>
+            </Layout>
+        );
     }
 }
 

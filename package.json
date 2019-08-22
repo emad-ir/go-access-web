@@ -1,18 +1,33 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "go-web-2019",
+  "private": true,
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "",
   "dependencies": {
-    "axios": "^0.18.0",
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-sass": "^1.0.26",
-    "lodash": "^4.17.10",
-    "react-helmet": "^5.2.0",
-    "react-notification-system": "^0.2.17",
-    "react-scroll-to-component": "^1.0.2"
+    "babel-plugin-styled-components": "^1.10.6",
+    "gatsby": "^2.13.50",
+    "gatsby-image": "^2.2.8",
+    "gatsby-plugin-favicon": "^3.1.6",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.2.4",
+    "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-react-helmet": "^3.1.3",
+    "gatsby-plugin-sass": "^2.1.4",
+    "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-source-filesystem": "^2.1.8",
+    "gatsby-transformer-sharp": "^2.2.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-collapsed": "^2.1.1",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-scrollable-anchor": "^0.6.1",
+    "styled-components": "^4.3.2",
+    "swiper": "^4.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
   },
   "keywords": [
     "gatsby"
@@ -20,15 +35,16 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": "^1.12.0"
+    "develop": "gatsby develop -H 0.0.0.0",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  }
+    "url": "git+https://emad271@bitbucket.org/awesomeeventwebsite/go-web-2019.git"
+  },
+  "author": "Infinite Reality",
+  "homepage": "https://bitbucket.org/awesomeeventwebsite/go-web-2019#readme"
 }
