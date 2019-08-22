@@ -72,6 +72,10 @@ const GlobalStyle = createGlobalStyle`
         font-size: 12px;
     }
 
+    .wf-loading {
+        visibility: hidden;
+    }
+
 
     .bold{
     }
