@@ -17,10 +17,10 @@ class IndexPage extends Component {
         const { search } = this.props.location
         const formSuccess = search.indexOf('success') > -1
         return (
-            <Layout location={this.props.location}>
+            <Layout>
                 <SEO title="Home" />
                 <Banner></Banner>
-                <WhyGo location={this.props.location}></WhyGo>
+                <WhyGo></WhyGo>
                 <GoGreen></GoGreen>
                 <GoEcosystem></GoEcosystem>
                 <Faq></Faq>

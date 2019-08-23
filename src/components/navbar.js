@@ -10,6 +10,12 @@ import mediaQuery from '../utils/mediaQuery'
 // images
 import Logo from "../images/logo.png"
 
+const bannerScrollPosition = 0;
+const whyGoScrollPosition = 640;
+const goGreenScrollPosition = 1490;
+const goEcoScrollPosition = 2040;
+const faqScrollPosition = 2820;
+
 
 const Header = styled.header`
     display: grid;
@@ -156,6 +162,7 @@ class Navbar extends Component {
     constructor(props) {
         super(props)
         this.handleActive = this.handleActive.bind(this)
+        this.listenToScroll = this.listenToScroll.bind(this)
         this.state = {
             mobileNav: false,
             theposition: 0,
@@ -172,7 +179,13 @@ class Navbar extends Component {
 
     listenToScroll = () => {
         const winScroll =
-            document.body.scrollTop || document.documentElement.scrollTop
+        document.body.scrollTop || document.documentElement.scrollTop
+        
+        const documentEl = document.documentElement
+        let endOfDoc = false
+        if (documentEl.scrollHeight - documentEl.scrollTop === documentEl.clientHeight){
+            endOfDoc = true
+        }
 
         const height =
             document.documentElement.scrollHeight -
@@ -182,35 +195,38 @@ class Navbar extends Component {
 
         this.setState({
             theposition: scrolled,
+            winScroll,
+            endOfDoc
         })
     }
 
 
     renderNavLinks() {
         const href = this.props.location && this.props.location.href ? this.props.location.href : ''
+        const { winScroll, endOfDoc }= this.state
         return (
             <Links>
-                <StyledLink to="/#why-go" onClick={() => this.handleActive('why-go')} className={href.indexOf('why-go') > -1 && 'active'}>
+                <StyledLink to="/#why-go" onClick={() => this.handleActive('why-go')} className={winScroll > whyGoScrollPosition && winScroll <  goGreenScrollPosition  && 'active'}>
                     <span className="material-icons">favorite</span>
                     Why Go
                 </StyledLink>
 
-                <StyledLink to="/#go-green" onClick={() => this.handleActive('go-green')} className={href.indexOf('go-green') > -1 && 'active'}>
+                <StyledLink to="/#go-green" onClick={() => this.handleActive('go-green')} className={winScroll > goGreenScrollPosition && winScroll <  goEcoScrollPosition && 'active'}>
                     <span className="material-icons">spa</span>
                     Go-Green
                 </StyledLink>
 
-                <StyledLink to="/#go-eco" onClick={() => this.handleActive('go-eco')} className={href.indexOf('go-eco') > -1 && 'active'}>
+                <StyledLink to="/#go-eco" onClick={() => this.handleActive('go-eco')} className={winScroll > goEcoScrollPosition && winScroll < faqScrollPosition && 'active'}>
                     <span className="material-icons">bubble_chart</span>
                     Go-Ecosystem
                 </StyledLink>
 
-                <StyledLink to="/#faq" onClick={() => this.handleActive('faq')} className={href.indexOf('faq') > -1 && 'active'}>
+                <StyledLink to="/#faq" onClick={() => this.handleActive('faq')} className={winScroll > faqScrollPosition && !endOfDoc && 'active'}>
                     <span className="material-icons">help</span>
                     FAQs
                 </StyledLink>
 
-                <StyledLink to="/#contact" onClick={() => this.handleActive('contact')} className={href.indexOf('contact') > -1 && 'active'}>
+                <StyledLink to="/#contact" onClick={() => this.handleActive('contact')} className={endOfDoc && 'active'}>
                     <span className="material-icons">perm_phone_msg</span>
                     Book a Demo
                 </StyledLink>

@@ -126,7 +126,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = (props) => {
-    configureAnchors({ offset: -60, scrollDuration: 1000 });
+    // configureAnchors({ offset: -60, scrollDuration: 1000 });
     // if (props.location) {
     //     const { search } = props.location
     //     if (search !== '' && search.indexOf('success') > -1) {
@@ -136,6 +136,15 @@ const Layout = (props) => {
     //         }, 2000);
     //     }
     // }
+
+    if (typeof window !== 'undefined') {
+        // eslint-disable-next-line global-require
+        require('smooth-scroll')('a[href*="#"]', {
+            speed: 800,
+            speedAsDuration: true,
+            easing: 'easeInOutCubic'
+        })
+    }
 
     return (
         <>

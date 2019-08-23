@@ -416,27 +416,29 @@ class WhyGo extends Component {
             activeDesc: SafetyDesc,
             intervalId: null,
             currentCount: 0,
+            winScroll: 0,
             activePhone: false
         }
     }
     componentDidMount() {
         var intervalId = setInterval(this.switchServices, 3000);
+        window.addEventListener('scroll', this.listenToScroll)
         this.setState({ intervalId: intervalId });
     }
 
     componentWillUnmount() {
         this.clearInterval()
+        window.removeEventListener('scroll', this.listenToScroll)
     }
 
-    componentDidUpdate(prevProps) {
-        const href = this.props.location ? this.props.location.href : ''
-        if (!this.state.activePhone && href.indexOf('why-go') > -1) {
-            this.setState({ activePhone: true })
-        }
 
-        if (this.state.activePhone && href.indexOf('banner') > -1) {
-            this.setState({ activePhone: false })
-        }
+    listenToScroll = () => {
+        const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop
+
+        this.setState({
+            winScroll,
+        })
     }
 
     clearInterval() {
@@ -495,9 +497,9 @@ class WhyGo extends Component {
 
 
     render() {
-        const { activeService, activeDesc, activeImg, activePhone } = this.state
+        const { activeService, activeDesc, activeImg, winScroll } = this.state
         return (
-            <ScrollableAnchor id={"why-go"}>
+            <div id="why-go">
                 <Container>
                     <div className="background-circle"></div>
                     <div className="header">
@@ -509,9 +511,9 @@ class WhyGo extends Component {
                         connect with your access points.
                         </p>
                     </div>
-                    <div className={`phone ${activePhone && 'active'}`}>
+                    <div className={`phone ${winScroll > 640 && 'active'}`}>
                         <img src={PhoneImg} alt="cellphone" className="phoneImg" />
-                        <div className={`phone-content ${activePhone && 'active'}`}>>
+                        <div className={`phone-content ${winScroll > 640  && 'active'}`}>>
                             <div className="icon-container">
                                 <img src={activeImg} alt="" />
                             </div>
@@ -573,7 +575,7 @@ class WhyGo extends Component {
                         </div>
                     </div>
                 </Container>
-            </ScrollableAnchor>
+            </div>
         )
     }
 }
