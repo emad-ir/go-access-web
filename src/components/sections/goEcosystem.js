@@ -287,7 +287,7 @@ const Container = styled.section`
 `
 
 const GoEcosystem = () => (
-    <div id="go-eco">
+    <ScrollableAnchor id="go-eco">
         <Container>
             <div className="header">
                 <SecondaryHeader className="go">Go</SecondaryHeader>
@@ -332,7 +332,7 @@ const GoEcosystem = () => (
                 </div>
             </div>
         </Container>
-    </div>
+    </ScrollableAnchor>
 )
 
 export default GoEcosystem

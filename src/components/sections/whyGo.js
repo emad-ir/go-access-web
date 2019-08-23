@@ -429,14 +429,14 @@ class WhyGo extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // const href = this.props.location ? this.props.location.href : ''
-        // if (!this.state.activePhone && href.indexOf('why-go') > -1) {
-        //     this.setState({ activePhone: true })
-        // }
+        const href = this.props.location ? this.props.location.href : ''
+        if (!this.state.activePhone && href.indexOf('why-go') > -1) {
+            this.setState({ activePhone: true })
+        }
 
-        // if (this.state.activePhone && href.indexOf('banner') > -1) {
-        //     this.setState({ activePhone: false })
-        // }
+        if (this.state.activePhone && href.indexOf('banner') > -1) {
+            this.setState({ activePhone: false })
+        }
     }
 
     clearInterval() {
@@ -497,7 +497,7 @@ class WhyGo extends Component {
     render() {
         const { activeService, activeDesc, activeImg, activePhone } = this.state
         return (
-            <div id={"why-go"}>
+            <ScrollableAnchor id={"why-go"}>
                 <Container>
                     <div className="background-circle"></div>
                     <div className="header">
@@ -573,7 +573,7 @@ class WhyGo extends Component {
                         </div>
                     </div>
                 </Container>
-            </div>
+            </ScrollableAnchor>
         )
     }
 }

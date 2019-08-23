@@ -187,8 +187,7 @@ class Navbar extends Component {
 
 
     renderNavLinks() {
-        const href = ''
-        // const href = this.props.location && this.props.location.href ? this.props.location.href : ''
+        const href = this.props.location && this.props.location.href ? this.props.location.href : ''
         return (
             <Links>
                 <StyledLink to="/#why-go" onClick={() => this.handleActive('why-go')} className={href.indexOf('why-go') > -1 && 'active'}>

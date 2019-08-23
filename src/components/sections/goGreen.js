@@ -91,7 +91,7 @@ const Container = styled.section`
 `
 
 const GoGreen = () => (
-    <div id="go-green">
+    <ScrollableAnchor id="go-green">
         <Container>
             <img src={TreeImg} alt="" />
             <h2>Green meens go, that's <br className="br" /> why we're <span>going green!</span></h2>
@@ -104,7 +104,7 @@ const GoGreen = () => (
                 And less time spent in queues which means less Co2 emissions.
             </p>
         </Container>
-    </div>
+    </ScrollableAnchor>
 )
 
 export default GoGreen
